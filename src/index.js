@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import App from './02-advanced/04-父子通信版-表单域组件'
+import App from './02-advanced/06-中间人模式'
 ReactDom.render(
   <React.StrictMode>
     <App />
