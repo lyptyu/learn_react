@@ -9,6 +9,8 @@ class App extends Component {
       firmList: [],
       info:''
     }
+  }
+  componentDidMount() {
     axios.get(`/test.json`).then(res => {
       console.log(res.data.data.films);
       this.setState({
