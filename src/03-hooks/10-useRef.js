@@ -1,30 +1,30 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useRef } from 'react'
 
 function App(props) {
-  const [text,setText] = React.useState('');
+
+  const mytext = useRef()
+
   const [list,setList] = React.useState(["aa","bb","cc"]);
 
 
-  const handleChange = useCallback((e) => {
-    // console.log(e.target.value);
-    setText(e.target.value);
-  },[])
+  // const handleChange = (e) => {
+  //   // console.log(e.target.value);
+  // }
 
-  const handleAdd = useCallback(() => {
-    console.log(text)
-    setList([...list,text]);
-    setText("")
-  },[list, text])
+  const handleAdd = () => {
+    setList([...list,mytext.current.value]);
+    mytext.current.value = "";
+  }
 
-  const handleDelete = useMemo(()=>(index) => {
+  const handleDelete = (index) => {
     console.log(index)
     var newList = [...list]
     newList.splice(index,1)
     setList(newList)
-  },[list])
+  }
   return (
     <div>
-      <input onChange={(e)=>handleChange(e)} value={text}/>
+      <input  ref={mytext}/>
       <button onClick={handleAdd}>add</button>
       <ul>
         {
