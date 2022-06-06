@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter, Redirect, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import Films from "../views/Films";
 import Cinemas from "../views/Cinemas";
 import Center from "../views/Center";
@@ -12,13 +12,13 @@ function isAuth(){
 function IndexRouter(props) {
   return (
     <div>
-      <HashRouter>
+      <Router>
         { props.children }
         <Switch>
           <Route path="/films" component={Films}/>
           <Route path="/cinemas" component={Cinemas}/>
           {/*<Route path="/center" component={Center}/>*/}
-          <Route path="/center" render={()=>{
+          <Route path="/center" render={(props)=>{
             return isAuth() ? <Center/> : <Redirect to={'/login'}/>
           }}/>
           <Route path="/login" component={Login}/>
@@ -26,7 +26,7 @@ function IndexRouter(props) {
           <Redirect from="/" to={'/films'} exact={true}/>
           <Route component={NotFound}></Route>
         </Switch>
-      </HashRouter>
+      </Router>
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import axios from "axios";
-import {useHistory} from "react-router-dom";
+import { withRouter} from "react-router-dom";
 
 function NowPlaying(props) {
-  const history = useHistory()
+  // const history = useHistory()
   const [list, setList] = React.useState([]);
   useEffect(()=>{
     axios({
@@ -17,27 +17,27 @@ function NowPlaying(props) {
     })
   },[])
 
-  const handleChangePage = (id) => {
-    history.push(`/detail/${id}`)
-    // history.push({
-    //   pathname: '/detail',
-    //   query: {
-    //     myid: id
-    //   }
-    // })
-    // history.push({
-    //   pathname:'/detail',
-    //   state:{
-    //     myid:id
-    //   }
-    // })
-  }
+  // const handleChangePage = (id) => {
+  //   history.push(`/detail/${id}`)
+  //   // history.push({
+  //   //   pathname: '/detail',
+  //   //   query: {
+  //   //     myid: id
+  //   //   }
+  //   // })
+  //   // history.push({
+  //   //   pathname:'/detail',
+  //   //   state:{
+  //   //     myid:id
+  //   //   }
+  //   // })
+  // }
     return (
     <div>
       <ul>
         {
           list.map(item=>{
-            return <li key={item.filmId} onClick={() => handleChangePage(item.filmId)}>{item.name}</li>
+            return <WithFilmItem key={item.filmId} {...item}/>
           })
         }
       </ul>
@@ -46,3 +46,10 @@ function NowPlaying(props) {
 }
 
 export default NowPlaying;
+
+function FilmItem (props) {
+  const {name, filmId} = props
+  return <li  onClick={() => props.history.push(`/detail/${filmId}`)}>{name}</li>
+}
+
+const WithFilmItem = withRouter(FilmItem)
