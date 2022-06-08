@@ -7,6 +7,7 @@ import NotFound from "../views/NotFound";
 import Detail from "../views/Detail";
 import Login from "../views/Login";
 import City from "../views/City";
+import Search from "../views/Search";
 function isAuth(){
   return !!localStorage.getItem('token');
 }
@@ -17,7 +18,8 @@ function IndexRouter(props) {
         { props.children }
         <Switch>
           <Route path="/films" component={Films}/>
-          <Route path="/cinemas" component={Cinemas}/>
+          <Route path="/cinemas" component={Cinemas} exact/>
+          <Route path="/cinemas/search" component={Search}/>
           {/*<Route path="/center" component={Center}/>*/}
           <Route path="/center" render={(props)=>{
             return isAuth() ? <Center/> : <Redirect to={'/login'}/>
