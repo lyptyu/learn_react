@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import App from './04-router/App'
+import App from './05-redux/App'
 ReactDom.render(
   // <React.StrictMode>
     <App />,
