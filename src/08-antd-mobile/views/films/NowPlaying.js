@@ -55,7 +55,7 @@ function NowPlaying(props) {
   }
     return (
     <div>
-      <List header='用户列表'>
+      <List>
         {list.map(item => (
           <List.Item
             onClick={()=>{handleChangePage(item.filmId)}}
