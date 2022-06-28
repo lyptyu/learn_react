@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {NavLink, Redirect, Route, Switch} from "react-router-dom";
+import { Redirect, Route, Switch} from "react-router-dom";
 import NowPlaying from "./films/NowPlaying";
 import ComingSoon from "./films/ComingSoon";
 import axios from "axios";
-import style from './css/Flims.module.css'
+// import style from './css/Flims.module.css'
 import {Swiper,Tabs} from "antd-mobile";
 
 class Films extends Component {

@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import store from "../redux/store";
 import getCinemaListAction from "../redux/actionCreator/getCinemaAction";
+import {SearchBar} from "antd-mobile";
 
 function Search(props) {
   const [cityName] = React.useState(store.getState().CityReducer.cityName);
@@ -30,10 +31,14 @@ function Search(props) {
 
   return (
     <div>
-      {cityName}
-      <input type="text" value={mytext} onChange={(event)=>{
-        setText(event.target.value)
-      }}/>
+      {/*<input type="text" value={mytext} onChange={(event)=>{*/}
+      {/*  setText(event.target.value)*/}
+      {/*}}/>*/}
+      <div style={{padding:'10px'}}>
+        <SearchBar placeholder='请输入内容' value={mytext} showCancelButton={() => true} onChange={(value)=>{
+          setText(value)
+        }}/>
+      </div>
       {
         getCinemaList.map((item,) => {
           return <dl key={item.cinemaId} style={{padding:"10px"}}>
