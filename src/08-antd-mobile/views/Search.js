@@ -4,7 +4,7 @@ import getCinemaListAction from "../redux/actionCreator/getCinemaAction";
 import {SearchBar} from "antd-mobile";
 
 function Search(props) {
-  const [cityName] = React.useState(store.getState().CityReducer.cityName);
+  // const [cityName] = React.useState(store.getState().CityReducer.cityName);
   const [cinemaList,setCinemaList] = React.useState(store.getState().CinemaListReducer.list);
   const [mytext, setText] = React.useState('')
   useEffect(()=>{
