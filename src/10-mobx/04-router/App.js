@@ -1,23 +1,20 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import MRouter from './route/indexRouter';
 import Tabbar from "./components/Tabbar";
 import './views/css/App.css';
-import {autorun} from "mobx";
-import store from "./mobx/store";
-function App(props) {
-  const [isShow, setIsShow] = React.useState(true);
-  useEffect(()=>{
-    autorun(()=>{
-      setIsShow(store.isTabbarShow)
-    })
-  })
-  return (
-    <div>
-      <MRouter>
-        { isShow && <Tabbar/> }
-      </MRouter>
-    </div>
-  );
+import {inject,observer} from "mobx-react";
+@inject('store')
+@observer
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <MRouter>
+          { this.props.store.isTabbarShow && <Tabbar/> }
+        </MRouter>
+      </div>
+    )
+  }
 }
 
 export default App;
