@@ -4,7 +4,7 @@ var arr = List([1,2,3,4,5]);
 var arr2 = arr.push(4)
 console.log(arr, arr2)
 function App () {
-  const [favor, setFavor] = React.useState(List(['aa','bb','cc']));
+  const [favor] = React.useState(List(['aa','bb','cc']));
   return (
     <div>
       {
