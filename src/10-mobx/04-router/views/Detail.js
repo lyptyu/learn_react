@@ -5,10 +5,10 @@ function Detail(props) {
 
   useEffect(() => {
     // console.log('create')
-    store.isTabbarShow = false
+    store.changeHide()
     return ()=>{
       console.log('destroy')
-      store.isTabbarShow = true
+      store.changeShow()
     }
   }, []);
 
