@@ -3,6 +3,7 @@ import MRouter from './route/indexRouter';
 import Tabbar from "./components/Tabbar";
 import './views/css/App.css';
 import {connect} from "react-redux";
+import './util/request'
 function App(props) {
   // const [isShow, setIsShow] = React.useState(true);
   useEffect(()=>{
