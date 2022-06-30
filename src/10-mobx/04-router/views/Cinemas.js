@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import store from "../mobx/store";
-import {autorun} from "mobx";
+// import {autorun} from "mobx";
 import {inject, Observer} from "mobx-react";
 function Cinemas(props) {
   // const [cityName] = React.useState('');
