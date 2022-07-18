@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import App from './11-styled-components/04-动画';
+import App from './12-单元测试/App'
 import {Provider} from "mobx-react";
 import store from "./10-mobx/04-router/mobx/store";
 ReactDom.render(
